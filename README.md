@@ -1,5 +1,46 @@
 # IsaacLab Tutorial - SO101 Vial Place
 
+This `learning-path` branch starts from `main` at `c64024e55fc7c0ed8614a6309b7b1ed2ad1faaf5`.
+Follow the **Train a Robot Arm** module in Getting Started With Isaac Lab.
+Stay on this branch and replace each marked region with the matching lesson snippet.
+Keep the `# BEGIN ...` and `# END ...` comments and replace only their contents.
+Imports, assets, reset data, and supporting utilities are supplied.
+
+```bash
+uv sync
+export PXR_WORK_THREAD_LIMIT=1
+git diff main -- src/
+```
+
+The initial inspection command intentionally fails configuration validation because
+`SO101SceneCfg.robot` is missing. Add the robot and joint-velocity implementation
+in the SO-101 Robot lesson before running it:
+
+```bash
+uv run isaaclab zero_agent --task IsaacTutorial-Inspect-SO101 --num_envs 1 --max_steps 120 presets=newton_mjwarp
+```
+
+Complete lessons in order: Project Setup, SO-101 Robot, Vial and Rack Scene,
+Running Simple Agents, Train a Teacher Policy, Distill a Student Policy,
+and Managing Experiments. The inspection task has no policy actions; the simple-agent
+lesson adds six actions, resets, and episode endings. Teacher and camera task code
+is incomplete until its corresponding lesson is finished.
+
+The upstream tests describe the completed task and are expected to fail while
+exercise regions are unfinished. After the distillation lesson, run:
+
+```bash
+uv run pytest -q
+```
+
+Use `git diff main -- src/` to compare your working copy with the reference without
+switching branches. Inspect `main`'s README with `git show main:README.md` for the
+complete reference documentation. Isaac Lab and training defaults match `main`; MoviePy is added for lesson recordings.
+
+## Completed Reference
+
+The reference workflow below assumes you have completed the lesson snippets.
+
 <p align="center">
   <img src="media/demo.gif" alt="SO-101 arm placing a vial into a four-hole rack" width="100%">
 </p>

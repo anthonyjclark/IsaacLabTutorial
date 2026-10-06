@@ -284,13 +284,10 @@ def vial_lost(env: ManagerBasedRLEnv) -> torch.Tensor:
     return (~finite) | dropped | (pos[:, 2] < -0.01) | (pos[:, 0].abs() > 0.62) | (pos[:, 1].abs() > 0.50)
 
 
+# BEGIN lesson-04-unstable-robot
 def unstable_robot(env: ManagerBasedRLEnv) -> torch.Tensor:
-    """Terminate non-finite or extreme joint motion."""
-    robot: Articulation = env.scene["robot"]
-    joint_pos = _tensor(robot.data.joint_pos)
-    joint_vel = _tensor(robot.data.joint_vel)
-    finite = torch.isfinite(joint_pos).all(dim=-1) & torch.isfinite(joint_vel).all(dim=-1)
-    return (~finite) | (joint_vel.abs().amax(dim=1) > 12.0)
+    raise NotImplementedError("Complete lesson-04-unstable-robot in the course.")
+# END lesson-04-unstable-robot
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -429,11 +426,10 @@ def joint_pos(env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg | None = None) -
     return position.clamp(limits[..., 0], limits[..., 1])
 
 
+# BEGIN lesson-02-joint-velocity
 def joint_vel(env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg | None = None) -> torch.Tensor:
-    """Return finite measured joint velocities for the selected robot joints."""
-    asset_cfg = SceneEntityCfg("robot") if asset_cfg is None else asset_cfg
-    robot: Articulation = env.scene[asset_cfg.name]
-    return _finite(_tensor(robot.data.joint_vel)[:, asset_cfg.joint_ids]).clamp(-12.0, 12.0)
+    raise NotImplementedError("Complete lesson-02-joint-velocity in the course.")
+# END lesson-02-joint-velocity
 
 
 def joint_target(env: ManagerBasedRLEnv) -> torch.Tensor:

@@ -41,26 +41,11 @@ PPO_ALGORITHM_CFG = RslRlPpoAlgorithmCfg(
 )
 
 
+# BEGIN lesson-05-ppo
 @configclass
 class SO101StatePPORunnerCfg(RslRlOnPolicyRunnerCfg):
-    """State teacher: fully observed actor, privileged critic."""
-
-    seed = 42
-    num_steps_per_env = 64
-    max_iterations = 800
-    save_interval = 50
-    experiment_name = "so101_vial_state"
-    run_name = ""
-    obs_groups = {"actor": ["policy"], "critic": ["critic"]}
-    clip_actions = 1.0
-    actor = RslRlMLPModelCfg(
-        hidden_dims=[256, 256, 128],
-        activation="elu",
-        obs_normalization=True,
-        distribution_cfg=BoundedGaussianDistributionCfg(init_std=0.2, std_type="log"),
-    )
-    critic = RslRlMLPModelCfg(hidden_dims=[256, 256, 128], activation="elu", obs_normalization=True)
-    algorithm = PPO_ALGORITHM_CFG
+    pass
+# END lesson-05-ppo
 
 
 @configclass
