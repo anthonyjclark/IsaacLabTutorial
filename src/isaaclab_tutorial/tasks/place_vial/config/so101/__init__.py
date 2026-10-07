@@ -9,9 +9,9 @@ from isaaclab_tutorial.tasks.place_vial.config.so101 import agents
 
 _PACKAGE = "isaaclab_tutorial.tasks.place_vial.config.so101"
 
-# BEGIN lesson-02-registration
+# BEGIN lesson-01-registration
 # Add the task registration here.
-# END lesson-02-registration
+# END lesson-01-registration
 
 # BEGIN lesson-06-camera-registration
 # Add the camera task registrations here.

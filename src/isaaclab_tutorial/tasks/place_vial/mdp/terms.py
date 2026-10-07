@@ -426,10 +426,10 @@ def joint_pos(env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg | None = None) -
     return position.clamp(limits[..., 0], limits[..., 1])
 
 
-# BEGIN lesson-02-joint-velocity
+# BEGIN lesson-01-joint-velocity
 def joint_vel(env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg | None = None) -> torch.Tensor:
-    raise NotImplementedError("Complete lesson-02-joint-velocity in the course.")
-# END lesson-02-joint-velocity
+    raise NotImplementedError("Complete lesson-01-joint-velocity in the course.")
+# END lesson-01-joint-velocity
 
 
 def joint_target(env: ManagerBasedRLEnv) -> torch.Tensor:
