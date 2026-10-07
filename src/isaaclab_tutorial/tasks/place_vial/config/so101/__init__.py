@@ -24,3 +24,14 @@ gym.register(
     disable_env_checker=True,
     kwargs={"env_cfg_entry_point": f"{_PACKAGE}.inspection_env_cfg:SO101InspectionEnvCfg"},
 )
+
+gym.register(
+    id="IsaacTutorial-Place-Vial-SO101-Camera",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{_PACKAGE}.camera_env_cfg:SO101VialCameraEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:SO101CameraPPORunnerCfg",
+        "default_agent": "rsl_rl",
+    },
+)

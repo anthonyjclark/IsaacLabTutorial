@@ -20,12 +20,6 @@ in the SO-101 Robot lesson before running it:
 uv run isaaclab zero_agent --task IsaacTutorial-Inspect-SO101 --num_envs 1 --max_steps 120 presets=newton_mjwarp
 ```
 
-Complete lessons in order: Project Setup, SO-101 Robot, Vial and Rack Scene,
-Running Simple Agents, Train a Teacher Policy, Distill a Student Policy,
-and Managing Experiments. The inspection task has no policy actions; the simple-agent
-lesson adds six actions, resets, and episode endings. Teacher and camera task code
-is incomplete until its corresponding lesson is finished.
-
 The upstream tests describe the completed task and are expected to fail while
 exercise regions are unfinished. After the distillation lesson, run:
 

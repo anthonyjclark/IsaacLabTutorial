@@ -9,10 +9,7 @@ description = "Isaac Lab tutorial for placing a vial with an SO-101 arm"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.12,<3.13"
-dependencies = [
-    "isaaclab",
-    "moviepy<2",
-]
+dependencies = ["isaaclab"]
 
 [project.entry-points."isaaclab.tasks"]
 so101-vial-place = "isaaclab_tutorial.tasks"
